@@ -1,7 +1,11 @@
 package so
 
+// Importe o pacote scheduler
+
+// Defina o tipo SystemCallType
 type SystemCallType int
 
+// Enumeração de tipos de chamadas de sistema
 const (
 	OPEN_PROCESS SystemCallType = iota
 	READ_PROCESS
@@ -10,6 +14,7 @@ const (
 	WRITE_PROCESS
 )
 
+// Função para obter o nome do tipo de chamada de sistema
 func GetSystemCallTypeName(callType SystemCallType) string {
 	switch callType {
 	case OPEN_PROCESS:
@@ -26,5 +31,3 @@ func GetSystemCallTypeName(callType SystemCallType) string {
 		return "Unknown System Call Type"
 	}
 }
-
-//

@@ -1,15 +1,14 @@
 package cpu
 
 import (
-	"fmt"
-	"memory-manager-simulator/process"
+	"fmt" // Importe o novo pacote de interfaces
+	"memory-manager-simulator/interfaces"
 )
 
-// Core representa um núcleo de CPU.
 type Core struct {
 	id                    int
 	instructionsPerSecond int
-	actuallyProcess       *process.SubProcess
+	actuallyProcess       interfaces.SubProcess
 }
 
 func NewCore(instructionsPerSecond int) *Core {
@@ -22,7 +21,7 @@ func (c *Core) Run() {
 	if c.actuallyProcess == nil {
 		return
 	}
-	//
+
 	sumInstructionsExecuted := c.actuallyProcess.GetInstructionsExecuted() + c.instructionsPerSecond
 	c.actuallyProcess.SetInstructionsExecuted(sumInstructionsExecuted)
 
@@ -32,32 +31,26 @@ func (c *Core) Run() {
 	}
 }
 
-// IsEmpty verifica se o núcleo está vazio.
 func (c *Core) IsEmpty() bool {
 	return c.actuallyProcess == nil
 }
 
-// GetActuallyProcess retorna o processo atualmente executado pelo núcleo.
-func (c *Core) GetActuallyProcess() *process.SubProcess {
+func (c *Core) GetActuallyProcess() interfaces.SubProcess {
 	return c.actuallyProcess
 }
 
-// SetActuallyProcess define o processo atualmente executado pelo núcleo.
-func (c *Core) SetActuallyProcess(actuallyProcess *process.SubProcess) {
+func (c *Core) SetActuallyProcess(actuallyProcess interfaces.SubProcess) { // Esta linha já foi alterada
 	c.actuallyProcess = actuallyProcess
 }
 
-// finishExecution finaliza a execução do processo atual.
 func (c *Core) finishExecution() {
 	c.actuallyProcess = nil
 }
 
-// GetID retorna o ID do núcleo.
 func (c *Core) GetID() int {
 	return c.id
 }
 
-// SetID define o ID do núcleo.
 func (c *Core) SetID(id int) {
 	c.id = id
 }

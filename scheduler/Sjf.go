@@ -12,10 +12,12 @@ func NewSJFScheduler() *SJFScheduler {
 	}
 }
 
+//
 func (s *SJFScheduler) AddProcess(p *common.Process) {
 	s.processQueue = append(s.processQueue, p)
 }
 
+//
 func (s *SJFScheduler) Schedule() *common.Process {
 	if len(s.processQueue) == 0 {
 		return nil

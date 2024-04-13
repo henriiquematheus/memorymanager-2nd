@@ -15,7 +15,7 @@ func Execute(strategy int) {
 
 	p3 := so.SystemCall(CREATE_PROCESS, 15).(*process.Process)
 	so.SystemCall(WRITE_PROCESS, p3)
-
+	//
 	// Feche os processos p2 e p3
 	so.SystemCall(CLOSE_PROCESS, p2)
 	so.SystemCall(CLOSE_PROCESS, p3)

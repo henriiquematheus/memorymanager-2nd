@@ -7,6 +7,7 @@ type FCFSScheduler struct {
 	processQueue []*common.Process // Fila de processos a serem escalonados
 }
 
+//
 // NewFCFSScheduler cria uma nova instância de FCFSScheduler.
 func NewFCFSScheduler() *FCFSScheduler {
 	return &FCFSScheduler{

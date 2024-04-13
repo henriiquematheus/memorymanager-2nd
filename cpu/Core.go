@@ -22,7 +22,7 @@ func (c *Core) Run() {
 	if c.actuallyProcess == nil {
 		return
 	}
-
+	//
 	sumInstructionsExecuted := c.actuallyProcess.GetInstructionsExecuted() + c.instructionsPerSecond
 	c.actuallyProcess.SetInstructionsExecuted(sumInstructionsExecuted)
 

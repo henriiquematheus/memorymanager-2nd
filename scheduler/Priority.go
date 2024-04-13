@@ -32,3 +32,5 @@ func (p *PriorityScheduler) Schedule() *common.Process {
 	}
 	return highestPriorityProcess
 }
+
+//
